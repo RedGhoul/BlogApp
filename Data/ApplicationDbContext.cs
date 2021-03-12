@@ -28,7 +28,7 @@ namespace BlogApp.Data
 
             builder.Entity<BlogTag>().HasKey(sc => new { sc.TagId, sc.BlogId });
 
-            builder.Entity<Blog>().HasIndex(x => new { x.Content, x.Title }).IsFullText();
+            builder.Entity<Blog>().HasIndex(x => new { x.Content, x.Title }).IsTsVectorExpressionIndex("english");
 
         }
     }
